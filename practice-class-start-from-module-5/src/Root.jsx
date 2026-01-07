@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Root() {
   return (
-    <div>
+    <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
@@ -40,6 +40,6 @@ export default function Root() {
         </nav>
       </div>
       <div id="detail">hello</div>
-    </div>
+    </>
   )
 }
