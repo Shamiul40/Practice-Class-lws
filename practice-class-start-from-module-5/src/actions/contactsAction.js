@@ -1,6 +1,6 @@
 import { createContact } from "../constact";
 
-export async function action() {
+export async function createContactAction() {
   const contact = await createContact();
   return { contact };
 }

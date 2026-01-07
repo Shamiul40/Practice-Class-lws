@@ -6,6 +6,7 @@ import Root from './Root'
 import Error from './Error'
 import Contact from './Contact'
 import { getContactsLoader } from './loaders/contactLoaders'
+import { createContactAction } from './actions/contactsAction'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     element : <Root></Root>,
     errorElement: <Error />,
     loader : getContactsLoader,
+    action: createContactAction,
     children : [
       {
         path : "/contacts/:contactId",
