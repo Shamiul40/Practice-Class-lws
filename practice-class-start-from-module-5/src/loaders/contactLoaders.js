@@ -6,6 +6,6 @@ export async function getContactsLoader() {
 }
 
 export async function getContactLoader({params}) {
-  const contacts = await getContact(params.contactsId);
-  return { contacts };
+  const contact = await getContact(params.contactId);
+  return { contact };
 }
