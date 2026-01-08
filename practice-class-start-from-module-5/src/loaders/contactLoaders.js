@@ -1,4 +1,4 @@
-import { getContacts } from "../constact";
+import { getContact, getContacts } from "../constact";
 
 export async function getContactsLoader() {
   const contacts = await getContacts();
@@ -6,6 +6,6 @@ export async function getContactsLoader() {
 }
 
 export async function getContactLoader({params}) {
-  const contacts = await getContacts(params.contactsId);
+  const contacts = await getContact(params.contactsId);
   return { contacts };
 }

@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './Root'
 import Error from './Error'
 import Contact from './Contact'
-import { getContactsLoader } from './loaders/contactLoaders'
+import { getContactLoader, getContactsLoader } from './loaders/contactLoaders'
 import { createContactAction } from './actions/contactsAction'
 
 const router = createBrowserRouter([
@@ -18,7 +18,8 @@ const router = createBrowserRouter([
     children : [
       {
         path : "/contacts/:contactId",
-        element : <Contact></Contact>
+        loader :getContactLoader,
+        element : <Contact></Contact>,
       }
     ]
   },
