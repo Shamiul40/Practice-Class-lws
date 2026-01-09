@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Posts from "./Components/Posts";
-import initialValue from "../src//db/Data";
 import AddPost from "./Components/AddPost";
 import EditPost from "./Components/EditPost";
 
 function App() {
-  const [posts, setPosts] = useState(initialValue);
+  const [posts, setPosts] = useState([]);
   const [post, setPost]= useState(null)
+
+
+  
 
   const onAddPost = (newPost) => {
     const id = posts.length ? Number(posts[posts.length - 1].id) +1 : 1;
@@ -37,6 +39,16 @@ function App() {
     setPosts(newUpdatePost)
     setPost(null)
   };
+
+    useEffect(()=>{
+
+      const fetchPost = async()=>{
+        const resp
+      }
+
+      fetchPost()
+
+    },[])
 
   return (
     <div className="w-11/12 text-xl  mx-auto my-5 h-screen ">
