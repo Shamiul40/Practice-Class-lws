@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import Posts from './Components/Posts'
 import initialValue from "../src//db/Data"
+import AddPost from './Components/AddPost'
 
 function App() {
   const [posts, setPosts] = useState(initialValue)
@@ -15,6 +16,7 @@ function App() {
            <hr />
         <Posts posts={posts}></Posts>
         <hr />
+        <AddPost></AddPost>
       </div>
   )
 }
