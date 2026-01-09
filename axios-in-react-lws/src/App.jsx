@@ -8,6 +8,17 @@ import AddPost from './Components/AddPost'
 function App() {
   const [posts, setPosts] = useState(initialValue)
 
+  const onAddPost =(newPost)=>{
+    const id = posts.length ? (Number(posts[posts.length - 1].id)) : 1
+    
+    setPosts([
+      ...posts,
+      {
+        id,
+        ...newPost
+      }
+    ])
+  }
 
   return (
   
@@ -16,7 +27,7 @@ function App() {
            <hr />
         <Posts posts={posts}></Posts>
         <hr />
-        <AddPost></AddPost>
+        <AddPost onAddPost={onAddPost}></AddPost>
       </div>
   )
 }

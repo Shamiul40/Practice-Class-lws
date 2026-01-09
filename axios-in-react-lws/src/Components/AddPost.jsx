@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 
-export default function AddPost() {
+export default function AddPost({onAddPost}) {
   const [title, setTitle] = useState(null);
   const [body, setBody] = useState(null);
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(title, body)
+
+    const newPost = {
+        title,
+        body
+    }
+   onAddPost(newPost)
+
+   setTitle("");
+   setBody("")
+   
   }
 
 
