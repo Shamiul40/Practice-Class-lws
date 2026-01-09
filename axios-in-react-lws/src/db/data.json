@@ -24,13 +24,18 @@
       "id": "5",
       "title": "nesciunt quas odios",
       "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
+    },
+    {
+      "id": "6",
+      "title": "test 1",
+      "body": "body 1"
     }
   ],
-  "tags" : [
+  "tags": [
     {
-      "id" : "1",
-      "title" : "Shamiul Islam",
-      "body" : "Shami is a good boy"
+      "id": "1",
+      "title": "Shamiul Islam",
+      "body": "Shami is a good boy"
     }
   ]
 }

@@ -10,16 +10,32 @@ function App() {
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
 
-  const onAddPost = (newPost) => {
-    const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
+  const onAddPost =async (newPost) => {
+    try {
+    
+      const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
 
-    setPosts([
-      ...posts,
-      {
-        id,
-        ...newPost,
-      },
-    ]);
+      const finalPost = {
+        id :id.toString(),
+        ...newPost
+      }
+      console.log(finalPost)
+
+      const responseData = await axios.post(`http://localhost:8000/posts`, finalPost)
+      
+      setPosts([...posts, responseData.data])
+
+     
+
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.message);
+      } else {
+        console.log(error);
+      }
+    }
+
+    
   };
 
   const handleDeletePost = (postId) => {
@@ -58,7 +74,7 @@ function App() {
     };
 
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="w-11/12 text-xl  mx-auto my-5 h-screen ">
@@ -81,7 +97,7 @@ function App() {
         {error ? (
           <>
             {" "}
-            <hr /> 
+            <hr />
             <p className="bg-red-300">{error}</p>
           </>
         ) : (
