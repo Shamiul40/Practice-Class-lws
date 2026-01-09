@@ -56,13 +56,20 @@ function App() {
     }
   };
 
-  const handleEditPost = (updatePost) => {
-    const newUpdatePost = posts.map((post) =>
-      post.id === updatePost.id ? updatePost : post
+  const handleEditPost = async (updatePost) => {
+      try{
+
+        const response = await axios.patch(`http://localhost:8000/posts/${updatePost.id}`, updatePost)
+        console.log(response.data)
+        const newUpdatePost = posts.map((post) =>
+      post.id === response.data.id ? response.data : post
     );
 
     setPosts(newUpdatePost);
     setPost(null);
+      } catch(error) {
+        setError(error)
+      }
   };
 
   useEffect(() => {
