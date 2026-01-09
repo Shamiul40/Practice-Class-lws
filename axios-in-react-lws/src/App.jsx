@@ -3,6 +3,7 @@ import "./App.css";
 import Posts from "./Components/Posts";
 import AddPost from "./Components/AddPost";
 import EditPost from "./Components/EditPost";
+import axios from "axios";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -43,7 +44,8 @@ function App() {
     useEffect(()=>{
 
       const fetchPost = async()=>{
-        const resp
+        const response = await axios.get(`http://localhost:8000/posts`)
+        console.log(response.data)
       }
 
       fetchPost()
