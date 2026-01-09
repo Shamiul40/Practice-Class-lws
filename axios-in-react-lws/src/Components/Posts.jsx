@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Posts({ posts }) {
+export default function Posts({ posts, handleDeletePost }) {
 
     
 
@@ -15,7 +15,7 @@ export default function Posts({ posts }) {
               <li >{post.title}</li>
               <div className="space-x-2 cursor-pointer">
                 <span>edit</span>
-                <span>delete</span>
+                <span onClick={()=>handleDeletePost(post.id)} >delete</span>
               </div>
             </div>
           ))
