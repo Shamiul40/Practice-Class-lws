@@ -7,8 +7,8 @@ export default function Posts({ posts }) {
       <ul>
         {posts.length > 0 ? (
           posts.map((post) => (
-            <div className="flex gap-5">
-              <li key={post.id}>{post.title}</li>{" "}
+            <div key={post.id} className="flex gap-5">
+              <li >{post.title}</li>{" "}
               <div className="space-x-2 cursor-pointer">
                 <span>edit</span>
                 <span>delete</span>
