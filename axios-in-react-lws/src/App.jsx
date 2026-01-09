@@ -7,13 +7,11 @@ import axios from "axios";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [post, setPost]= useState(null)
-
-
-  
+  const [post, setPost] = useState(null);
+  const [error, setError] = useState(null);
 
   const onAddPost = (newPost) => {
-    const id = posts.length ? Number(posts[posts.length - 1].id) +1 : 1;
+    const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
 
     setPosts([
       ...posts,
@@ -34,29 +32,43 @@ function App() {
   };
 
   const handleEditPost = (updatePost) => {
-   
-    const newUpdatePost = posts.map(post=>post.id === updatePost.id ? updatePost :post)
-    
-    setPosts(newUpdatePost)
-    setPost(null)
+    const newUpdatePost = posts.map((post) =>
+      post.id === updatePost.id ? updatePost : post
+    );
+
+    setPosts(newUpdatePost);
+    setPost(null);
   };
 
-    useEffect(()=>{
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/posts`);
 
-      const fetchPost = async()=>{
-        const response = await axios.get(`http://localhost:8000/posts`)
-        console.log(response.data)
+        if (response && response.data) {
+          setPosts(response.data);
+        }
+      } catch (error) {
+        if (error.response) {
+          setError(
+            `error status is ${error.response.status} & error message is ${error.response.message}`
+          );
+        }
       }
+    };
 
-      fetchPost()
-
-    },[])
+    fetchData();
+  });
 
   return (
     <div className="w-11/12 text-xl  mx-auto my-5 h-screen ">
       <h1 className="text-4xl font-bold py-4">Api Request with Axios</h1>
       <hr />
-      <Posts posts={posts} handleDeletePost={handleDeletePost} onEditClick={setPost}></Posts>
+      <Posts
+        posts={posts}
+        handleDeletePost={handleDeletePost}
+        onEditClick={setPost}
+      ></Posts>
       <hr />
 
       {!post ? (
@@ -64,6 +76,18 @@ function App() {
       ) : (
         <EditPost post={post} handleEditPost={handleEditPost}></EditPost>
       )}
+
+      <div className="my-6">
+        {error ? (
+          <>
+            {" "}
+            <hr /> 
+            <p className="bg-red-300">{error}</p>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
