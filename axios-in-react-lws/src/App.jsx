@@ -29,7 +29,7 @@ function App() {
 
     } catch (error) {
       if (error.response) {
-        console.log(error.response.message);
+        setError(error.response.message);
       } else {
         console.log(error);
       }
@@ -38,10 +38,19 @@ function App() {
     
   };
 
-  const handleDeletePost = (postId) => {
+  const handleDeletePost =async (postId) => {
     if (confirm("are you delete this post")) {
-      const filtered = posts.filter((post) => post.id !== postId);
+      try {
+
+        await axios.delete(`http://localhost:8000/posts/${postId}`)
+
+        const filtered = posts.filter((post) => post.id !== postId);
       setPosts(filtered);
+      }
+       catch (error) {
+        setError(error.response.message)
+       } 
+
     } else {
       console.log("post does not deleted");
     }
