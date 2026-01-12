@@ -17,6 +17,7 @@ export default function Productlist() {
     queryKey: ["products"],
     queryFn: retiveProduct,
     retry :false,
+    staleTime : 5000
   });
   console.log(products);
 
