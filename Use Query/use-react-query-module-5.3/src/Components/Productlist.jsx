@@ -9,7 +9,7 @@ const retiveProduct = async () => {
 
 export default function Productlist() {
   const {
-    data: products,
+    data: products ,
     isLoading,
     error,
   } = useQuery({
