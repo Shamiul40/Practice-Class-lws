@@ -294,6 +294,13 @@
       "description": "bed is use for sleep",
       "price": 3000,
       "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+    },
+    {
+      "id": "d176f75e-0de5-47c4-9d8a-4ccf1fbe2ef4",
+      "title": "mog",
+      "description": "mog aaaaa",
+      "price": 40,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/2/thumbnail.jpg"
     }
   ]
 }
