@@ -7,10 +7,10 @@ function App() {
   
 
   return (
-    <>
+    <div className='flex'>
       <Productlist></Productlist>
-      <ProductDetails></ProductDetails>
-    </>
+      <ProductDetails id={1}></ProductDetails>
+    </div>
   )
 }
 
