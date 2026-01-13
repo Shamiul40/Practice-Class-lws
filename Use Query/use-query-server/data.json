@@ -287,6 +287,13 @@
       "price": 3,
       "rating": 5,
       "thumbnail": "test"
+    },
+    {
+      "id": "ea57b5ce-e3b8-480b-8d9e-73cf8d699b44",
+      "title": "bed",
+      "description": "bed is use for sleep",
+      "price": 3000,
+      "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
     }
   ]
 }

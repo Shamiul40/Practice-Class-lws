@@ -1,8 +1,9 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useState } from 'react'
 
 export default function AddProduct() {
+    const queryClient = useQueryClient();
     const [state, setState] = useState({
         title : "",
         description : "",
@@ -15,6 +16,9 @@ export default function AddProduct() {
     const mutation = useMutation({
         mutationFn : (newProduct) =>{
             axios.post(`http://localhost:3000/products`, newProduct)
+        },
+        onSuccess : ()=>{
+            queryClient.invalidateQueries(["products"])
         }
     })
 
