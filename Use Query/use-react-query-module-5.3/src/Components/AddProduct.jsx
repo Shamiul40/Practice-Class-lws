@@ -12,7 +12,7 @@ export default function AddProduct() {
     const handleChange=(e)=>{
         const name = e.target.name;
         const value = e.target.type === "number" ? e.target.valueAsNumber : e.target.value;
-
+        console.log(e.target)
         setState({
             ...state,
             [name] : value
