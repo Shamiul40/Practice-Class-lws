@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import React from 'react'
 
-const retriveProduct = async(queryKey)=>{
+const retriveProduct = async({queryKey})=>{
     const response = await axios.get(`http://localhost:3000/${queryKey[0]}/${queryKey[1]}`)
     return response.data
 }
 
-export default function ProductDetails(id) {
+export default function ProductDetails({id}) {
 
     const{data : product, isLoading, error} = useQuery({
         queryKey : ["products", id],
