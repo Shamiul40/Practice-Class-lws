@@ -1,14 +1,13 @@
 
 import './App.css'
 import Fieldset from './Components/Fieldset'
+import LoginForm from './Form/LoginForm'
 
 function App() {
 
   return (
     <>
-  <Fieldset lable={"React hook form"}>
-    <h1>shamil</h1>
-  </Fieldset>
+  <LoginForm></LoginForm>
     </>
   )
 }
