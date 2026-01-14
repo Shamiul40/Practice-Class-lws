@@ -9,7 +9,8 @@ export default function LoginForm() {
         <Fieldset lable={"React hook form"}>
           <Field lable={"email"}>
             <input
-              type="text"
+            name="email"
+              type="email"
               placeholder="type your email"
               className=" block w-3/12 rounded-lg border-gray-300 px-4 py-2 text-gray-900 shadow-sm sm:text-sm"
             />
@@ -17,6 +18,7 @@ export default function LoginForm() {
 
           <Field lable={"password"}>
             <input
+                name="password"
               type="password"
               placeholder="type your password"
               className=" block w-3/12 rounded-lg border-gray-300 px-4 py-2 text-gray-900 shadow-sm sm:text-sm"
