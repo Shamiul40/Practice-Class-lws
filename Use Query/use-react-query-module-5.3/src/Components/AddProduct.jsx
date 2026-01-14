@@ -18,7 +18,7 @@ export default function AddProduct() {
             axios.post(`http://localhost:3000/products`, newProduct)
         },
         onSuccess : ()=>{
-            queryClient.invalidateQueries(["products"])
+            queryClient.invalidateQueries(["products"]) 
         }
     })
 
