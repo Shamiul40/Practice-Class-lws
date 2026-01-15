@@ -14,7 +14,7 @@ export default function LoginForm() {
   const handleInput = (data) => {
     const user = {
       email : "ab@ab.com",
-      password : 12345678
+      password : "12345678"
 
     }
 
@@ -26,7 +26,7 @@ export default function LoginForm() {
         type :"random"
       } )
     }
-
+    console.log(data)
 
   };
   return (
@@ -57,7 +57,7 @@ export default function LoginForm() {
               name="password"
               type="password"
               placeholder="type your password"
-              className={`block w-3/12 rounded-lg border ${errors.email ? "border-red-400" : "border-gray-300"}  px-4 py-2 text-gray-900 shadow-sm sm:text-sm`}
+              className={`block w-3/12 rounded-lg border ${errors.password ? "border-red-400" : "border-gray-300"}  px-4 py-2 text-gray-900 shadow-sm sm:text-sm`}
             />
           </Field>
           <Field>
@@ -65,7 +65,7 @@ export default function LoginForm() {
               Submit
             </button>
           </Field>
-          <div>{errors.root.random.message}</div>
+          <div>{errors?.root?.random?.message}</div>
         </Fieldset>
       </form>
     </div>
