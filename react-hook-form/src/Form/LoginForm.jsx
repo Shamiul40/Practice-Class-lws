@@ -23,7 +23,7 @@ export default function LoginForm() {
               name="email"
               type="email"
               placeholder="type your email"
-              className=" block w-3/12 rounded-lg border-gray-300 px-4 py-2 text-gray-900 shadow-sm sm:text-sm"
+              className={`block w-3/12 rounded-lg border ${errors.email ? "border-red-400" : "border-gray-300"}  px-4 py-2 text-gray-900 shadow-sm sm:text-sm`}
             />
           </Field>
 
@@ -40,7 +40,7 @@ export default function LoginForm() {
               name="password"
               type="password"
               placeholder="type your password"
-              className=" block w-3/12 rounded-lg border-gray-300 px-4 py-2 text-gray-900 shadow-sm sm:text-sm"
+              className={`block w-3/12 rounded-lg border ${errors.email ? "border-red-400" : "border-gray-300"}  px-4 py-2 text-gray-900 shadow-sm sm:text-sm`}
             />
           </Field>
           <Field>
