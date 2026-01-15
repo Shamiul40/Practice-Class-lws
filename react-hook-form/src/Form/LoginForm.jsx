@@ -7,10 +7,27 @@ export default function LoginForm() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm();
+
   const handleInput = (data) => {
-    console.log(data);
+    const user = {
+      email : "ab@ab.com",
+      password : 12345678
+
+    }
+
+    const found = user.email===data.email && user.password ===data.password;
+    
+    if(!found) {
+      setError("root.random", {
+        message :  `the user email ${data.email} is not found`,
+        type :"random"
+      } )
+    }
+
+
   };
   return (
     <div className="m-4">
@@ -48,6 +65,7 @@ export default function LoginForm() {
               Submit
             </button>
           </Field>
+          <div>{errors.root.random.message}</div>
         </Fieldset>
       </form>
     </div>
