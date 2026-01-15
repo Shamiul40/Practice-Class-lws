@@ -4,18 +4,21 @@ import Field from "../Components/Field";
 import { useForm } from "react-hook-form";
 
 export default function LoginForm() {
-
-    const {register, handleSubmit} =useForm()
-    const handleInput=(data)=>{
-        console.log(data)
-    }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const handleInput = (data) => {
+    console.log(data);
+  };
   return (
     <div className="m-4">
       <form onSubmit={handleSubmit(handleInput)}>
         <Fieldset lable={"React hook form"}>
-          <Field lable={"email"}>
+          <Field lable={"email"} error={errors.email}>
             <input
-            {...register("email" , {required : "email is required"})}
+              {...register("email", { required: "email is required" })}
               id="email"
               name="email"
               type="email"
@@ -24,15 +27,15 @@ export default function LoginForm() {
             />
           </Field>
 
-          <Field lable={"password"}>
+          <Field lable={"password"} error={errors.password}>
             <input
-            {...register("password", {required : "password is required", 
-              minLength :{
-                value : 6,
-                message : "password must be atleast 6 character"
-              }
-              
-            })}
+              {...register("password", {
+                required: "password is required",
+                minLength: {
+                  value: 6,
+                  message: "password must be atleast 6 character",
+                },
+              })}
               id="password"
               name="password"
               type="password"

@@ -8,7 +8,7 @@ export default function Field({lable, children, htmlFor, error}) {
     <div className='flex flex-col justify-start items-start gap-2'>
         {lable && <label htmlFor={id}>{lable}</label>} 
         {children}
-        {error && <div>{error.message}</div>}
+        {error && <div className='text-red-600'>{error.message}</div>}
     </div>
   )
 }
