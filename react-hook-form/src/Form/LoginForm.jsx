@@ -15,7 +15,7 @@ export default function LoginForm() {
         <Fieldset lable={"React hook form"}>
           <Field lable={"email"}>
             <input
-            {...register("email")}
+            {...register("email" , {required : "email is required"})}
               id="email"
               name="email"
               type="email"
@@ -26,7 +26,13 @@ export default function LoginForm() {
 
           <Field lable={"password"}>
             <input
-            {...register("password")}
+            {...register("password", {required : "password is required", 
+              minLength :{
+                value : 6,
+                message : "password must be atleast 6 character"
+              }
+              
+            })}
               id="password"
               name="password"
               type="password"
