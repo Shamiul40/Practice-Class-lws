@@ -14,7 +14,7 @@ export default function LoginForm() {
   const handleInput = (data) => {
     const user = {
       email : "ab@ab.com",
-      password : "12345678 1111111"
+      password : "12345678"
 
     }
 
