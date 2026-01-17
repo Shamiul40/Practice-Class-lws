@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
+const productPerPage = 10;
+
 export default function ProductList() {
     const[products, setProducts] = useState([]);
     const [page, setPage] = useState(0);
@@ -9,9 +11,14 @@ export default function ProductList() {
 
     useEffect(()=>{
 
-        const fetchProducts=()=>{
-            
-        }
+        
+           const fetchProducts=async()=>{
+            const response = await fetch(`https://dummyjson.com/products?limit=${productPerPage}&skip=${page*productPerPage}`)
+
+            const data = await response.json();
+            console.log(data.products)
+
+           }
 
         const onIntersection=(items)=>{
             const loaderItems = items[0]
