@@ -1,53 +1,56 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 
 const productPerPage = 10;
 
 export default function ProductList() {
-    const[products, setProducts] = useState([]);
-    const [page, setPage] = useState(0);
-    const [hasMore, setHasMore] = useState(true);
-    const loaderRef = useRef(null)
-    
+  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const loaderRef = useRef(null);
 
-    useEffect(()=>{
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch(
+        `https://dummyjson.com/products?limit=${productPerPage}&skip=${page * productPerPage}`,
+      );
 
-        
-           const fetchProducts=async()=>{
-            const response = await fetch(`https://dummyjson.com/products?limit=${productPerPage}&skip=${page*productPerPage}`)
+      const data = await response.json();
 
-            const data = await response.json();
-            console.log(data.products)
+      if (data.products.length === 0) {
+        hasMore(false);
+      } else {
+        setProducts((prevProducts) => [...prevProducts, ...data.products]);
+      }
+      setPage(prevPage=>prevPage+1)
+    };
 
-           }
+    const onIntersection = (items) => {
+      const loaderItems = items[0];
 
-        const onIntersection=(items)=>{
-            const loaderItems = items[0]
-            
-            if(loaderItems.isIntersecting && hasMore ) {
-                fetchProducts();
-            }
-        }
+      if (loaderItems.isIntersecting && hasMore) {
+        fetchProducts();
+      }
+    };
 
-        const observer = new IntersectionObserver(onIntersection)
+    const observer = new IntersectionObserver(onIntersection);
 
-        if(observer && loaderRef.current){
-            observer.observe(loaderRef.current)
-        }
+    if (observer && loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
 
-        //clean up 
-        return ()=>{
-          if(observer) {
-            observer.disconnect();
-          }
-        }
-    })
-
+    //clean up
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, [hasMore, page]);
 
   return (
     <div>
       <h1>Product List</h1>
-      
+
       <div ref={loaderRef}>Loading more products...</div>
     </div>
-  )
+  );
 }
