@@ -1,13 +1,15 @@
 
 
 import './App.css'
+import ProductList from './Components/ProductList'
 
 function App() {
 
 
   return (
     <>
-      <h1>shami</h1>
+      <ProductList></ProductList>
+      
     </>
   )
 }
