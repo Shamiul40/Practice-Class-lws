@@ -14,11 +14,11 @@ export default function Counter() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center gap-4">
       <Count count={count}></Count>
-      <div >
+      <div className="flex justify-start gap-3">
         <Button handler={handleIncrement}>Increment</Button>
-        <Button handler={handleDecrement}>Decrement</Button>
+        <Button type="danger" handler={handleDecrement}>Decrement</Button>
       </div>
     </div>
   );

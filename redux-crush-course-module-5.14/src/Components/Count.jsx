@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Count({count}) {
   return (
-    <div>
+    <div className='text-2xl  font-bold'>
       {count}
     </div>
   )
