@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import './App.css'
 import Counter from './Components/Counter'
+import Stats from './Components/Stats'
 
 
 const initialCounters = [
@@ -18,6 +19,8 @@ const initialCounters = [
 function App() {
 const [counters, setCounters] = useState(initialCounters)
 
+const totalValue = counters.reduce((acc, counter) => acc + counter.value, 0);
+console.log(totalValue)
 
   const handleIncrement = (id) => {
     setCounters(counters.map(counter=>{
@@ -53,6 +56,10 @@ const [counters, setCounters] = useState(initialCounters)
           <Counter key={counter.id} count={counter.value} handleIncrement={()=>handleIncrement(counter.id)} handleDecrement={()=>handleDecrement(counter.id)}></Counter>
         ))
       }
+
+      <div>
+        <Stats count={totalValue}></Stats>
+      </div>
     </div>
   )
 }
