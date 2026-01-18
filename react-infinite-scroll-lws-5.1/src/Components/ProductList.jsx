@@ -50,7 +50,7 @@ export default function ProductList() {
     <div>
       <h1>Product List</h1>
 
-      <div ref={loaderRef}>Loading more products...</div>
+      <div ref={loaderRef}>Loading more  products...</div>
     </div>
   );
 }
