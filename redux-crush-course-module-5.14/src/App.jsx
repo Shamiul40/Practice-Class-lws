@@ -17,7 +17,7 @@ const initialCounters = [
 ]
 
 function App() {
-const [counters, setCounters] = useState(initialCounters)
+
 
 const totalValue = counters.reduce((acc, counter) => acc + counter.value, 0);
 console.log(totalValue)

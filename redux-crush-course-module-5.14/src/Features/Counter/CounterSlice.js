@@ -12,7 +12,7 @@ const initialCounters = [
 ];
 
 const counterSlice = createSlice({
-  name: counters,
+  name: "counters",
   initialCounters,
   reducers: {
     increment: (state, action) => {
